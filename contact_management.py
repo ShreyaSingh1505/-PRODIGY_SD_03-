@@ -42,7 +42,7 @@ def view_contact():
 
     name = listbox.get(selected)
     info = contacts.get(name)
-    messagebox.showinfo(f"👤 {name}", f"📞 Phone: {info['phone']}\n✉️ Email: {info['email']}")
+    messagebox.showinfo(f" {name}", f" Phone: {info['phone']}\n Email: {info['email']}")
 
 def edit_contact():
     selected = listbox.curselection()
@@ -59,7 +59,7 @@ def edit_contact():
     if new_phone and new_email:
         contacts[name] = {"phone": new_phone, "email": new_email}
         save_contacts()
-        messagebox.showinfo("Updated 🎉", f"{name}'s details have been updated.")
+        messagebox.showinfo("Updated ", f"{name}'s details have been updated.")
 
 def delete_contact():
     selected = listbox.curselection()
@@ -89,7 +89,7 @@ root.resizable(False, False)
 
 contacts = load_contacts()
 
-# 🧾 Entry Frame
+# Entry Frame
 entry_frame = tk.Frame(root, bg="#f8f9fa")
 entry_frame.pack(pady=10)
 
@@ -107,7 +107,7 @@ entry_email.grid(row=2, column=1, pady=2)
 
 tk.Button(root, text="Add Contact", width=30, bg="#28a745", fg="white", font=("Segoe UI", 10, "bold"), command=add_contact).pack(pady=10)
 
-# 📜 Contact List Frame
+# Contact List Frame
 list_frame = tk.Frame(root, bg="#f8f9fa")
 list_frame.pack(fill=tk.BOTH, expand=True, padx=15)
 
@@ -118,16 +118,17 @@ listbox = tk.Listbox(list_frame, height=10, width=50, font=("Segoe UI", 10), ysc
 listbox.pack(side=tk.LEFT, fill=tk.BOTH)
 scrollbar.config(command=listbox.yview)
 
-# 🔧 Button Controls
+#  Button Controls
 button_frame = tk.Frame(root, bg="#f8f9fa")
 button_frame.pack(pady=10)
 
-tk.Button(button_frame, text="👁️ View", width=12, command=view_contact).grid(row=0, column=0, padx=5, pady=5)
-tk.Button(button_frame, text="✏️ Edit", width=12, command=edit_contact).grid(row=0, column=1, padx=5, pady=5)
-tk.Button(button_frame, text="🗑️ Delete", width=12, command=delete_contact).grid(row=0, column=2, padx=5, pady=5)
+tk.Button(button_frame, text=" View", width=12, command=view_contact).grid(row=0, column=0, padx=5, pady=5)
+tk.Button(button_frame, text=" Edit", width=12, command=edit_contact).grid(row=0, column=1, padx=5, pady=5)
+tk.Button(button_frame, text=" Delete", width=12, command=delete_contact).grid(row=0, column=2, padx=5, pady=5)
 
 # Start with loaded contacts
 refresh_contact_list()
 
 # Run app
 root.mainloop()
+
